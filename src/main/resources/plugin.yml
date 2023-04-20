@@ -1,0 +1,9 @@
+name: MagusWand
+author: YoruHinda
+description: magic wand
+website: github.com/yoruhinda
+version: '${project.version}'
+main: com.github.yoruhinda.maguswand.MagusWand
+commands:
+  maguswand:
+    usage: use /maguswand
