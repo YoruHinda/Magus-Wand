@@ -37,6 +37,15 @@ public class WandCommand implements CommandExecutor {
     private String helpList(){
         return ChatColor.translateAlternateColorCodes('&', "&b----- MagusWand -----\n") +
                 ChatColor.translateAlternateColorCodes('&', "&5/maguswand wand &7- &6Give Wand\n") +
+                ChatColor.translateAlternateColorCodes('&', "&6Spells:\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &4Projectile &7- &bLeft Click\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &3Mana Cost: 5 mana\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &4Explosion &7- &bRight Click\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &3Mana Cost: 30 mana\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &4Protegium &7- &bShift + Right Click\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &3Mana Cost: 50 mana\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &4Illumination &7- &bShift + Left Click\n") +
+                ChatColor.translateAlternateColorCodes('&', "&7- &3Mana Cost: 20 mana\n") +
                 ChatColor.translateAlternateColorCodes('&', "&b---------------------");
     }
 }

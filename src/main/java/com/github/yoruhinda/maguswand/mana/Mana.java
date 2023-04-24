@@ -2,6 +2,7 @@ package com.github.yoruhinda.maguswand.mana;
 
 import com.github.yoruhinda.maguswand.MagusWand;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
@@ -15,7 +16,7 @@ public class Mana {
     private HashMap<Player, BossBar> manaBar = new HashMap<>();
     private final double MAX_MANA = 100;
 
-    public double getPlayerMana(Player player) {
+    public Double getPlayerMana(Player player) {
         return mana.get(player);
     }
 
@@ -34,7 +35,7 @@ public class Mana {
 
     public void removeMana(Player player, double amount) {
         Double mana = this.mana.get(player);
-        if (amount < MAX_MANA || mana - amount < MAX_MANA) {
+        if (amount >= MAX_MANA || (mana - amount) <= 0) {
             return;
         }
         this.mana.put(player, mana - amount);
@@ -50,10 +51,10 @@ public class Mana {
                         continue;
                     }
                     addMana(onlinePlayer, 1);
-                    updateManaBar(onlinePlayer, 1D);
+                    updateManaBar(onlinePlayer, mana.get(onlinePlayer) + 1D);
                 }
             }
-        }.runTaskTimerAsynchronously(MagusWand.getInstance(), 0, 20L);
+        }.runTaskTimer(MagusWand.getInstance(), 0, 20L);
     }
 
     public void addPlayerMana(Player player) {
@@ -73,7 +74,7 @@ public class Mana {
             mana = Bukkit.createBossBar("Mana", BarColor.BLUE, BarStyle.SOLID);
         }
         mana.setProgress(this.mana.get(player) / 100);
-        mana.setTitle("Mana: " + this.mana.get(player).intValue() + "/100");
+        mana.setTitle(ChatColor.DARK_AQUA + "Mana: " + this.mana.get(player).intValue() + "/100");
         mana.setVisible(true);
         mana.addPlayer(player);
         manaBar.put(player, mana);
@@ -82,7 +83,7 @@ public class Mana {
     public void updateManaBar(Player player, Double amount){
         BossBar mana = manaBar.get(player);
         mana.setProgress(amount / 100);
-        mana.setTitle("Mana: " + amount.intValue() + "/100");
+        mana.setTitle(ChatColor.DARK_AQUA + "Mana: " + amount.intValue() + "/100");
         mana.setVisible(true);
         mana.addPlayer(player);
     }

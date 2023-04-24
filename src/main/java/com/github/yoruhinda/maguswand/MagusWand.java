@@ -11,10 +11,6 @@ public final class MagusWand extends JavaPlugin {
     private static MagusWand INSTANCE;
     private final Mana mana = new Mana();
 
-    private MagusWand(){
-
-    }
-
     @Override
     public void onEnable() {
         INSTANCE = this;

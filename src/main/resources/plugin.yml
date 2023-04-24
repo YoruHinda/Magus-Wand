@@ -6,4 +6,5 @@ version: '${project.version}'
 main: com.github.yoruhinda.maguswand.MagusWand
 commands:
   maguswand:
+    description: Show the help menu
     usage: use /maguswand
